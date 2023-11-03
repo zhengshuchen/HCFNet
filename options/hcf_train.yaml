@@ -1,0 +1,57 @@
+exp:
+  name: HCF_demo
+  save_exp: True
+  bs: 4
+  total_epochs: 300
+  log_interval: 1
+  save_interval: 150
+  test_interval: 1
+  device: 3
+
+model:
+  net:
+    type: HCFnet
+    gt_ds: True
+
+  optim:
+    type: AdamW
+#    init_lr: !!float 1e-3
+    init_lr: !!float 5e-4
+    weight_decay: !!float 1e-4
+    betas: [0.9, 0.999]
+  # Iou_loss, Bce_loss, Dice_loss ..
+  loss:
+    loss_1:
+      type: Bce_loss
+      weight: 1
+    loss_2:
+      type: Iou_loss
+      weight: 1
+    # loss_3:
+    #   type: boundary
+    #   weight: 1
+  # resume_train: ~
+  lr:
+    warmup_iter: -1 # warmup to init_lr
+    # type: CosineAnnealingLR /
+    scheduler:
+#      type: ~
+      type: CosineAnnealingLR
+      step_interval: iter  # iter or epoch (every iter or every epoch to update once)
+      eta_min: !!float 1e-5
+
+dataset:
+  name:
+  train:
+    type: Dataset_aug_bac
+    data_root: /media/data2/zhengshuchen/code/HCFnet/sirst/trainval
+    img_sz: 512
+
+  test:
+    type: Dataset_test
+    data_root: /media/data2/zhengshuchen/code/HCFnet/sirst/test
+    img_sz: 512
+
+resume:
+  net_path: 
+  state_path:

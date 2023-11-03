@@ -1,0 +1,20 @@
+exp:
+#  save_dir:
+  bs: 4
+  device: 1
+
+model:
+  net:
+    type: HCFnet
+    gt_ds: False
+
+
+dataset:
+  test:
+    type: Dataset_test
+    data_root: /media/data2/zhengshuchen/code/HCFnet/sirst/test
+    img_sz: 512
+    get_name: True
+
+resume:
+  net_path: /media/data2/zhengshuchen/code/HCFnet/experiment/UCF_demo/best_1/models/net_best_mean.pth
