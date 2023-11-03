@@ -1,7 +1,7 @@
 
-# BasicISOS
+# HCFnet
 ## <div align="center"><b><a href="README.md">English</a> | <a href="README_CN.md">简体中文</a></b></div>
-BasicISOS is a framework for Infrared Small Object Segmentation, 
+HCFnet is a framework for Infrared Small Object Segmentation, 
 Which supports:
 - [x] Training
 - [x] Resume training from checkpoint 
@@ -13,8 +13,6 @@ It also including the official implementation of our paper
 Infrared Small Object 
 Salient Again](https://arxiv.org/abs/2301.12093)
 
-It also can be applied to other binary segmentation task (including: medical segmentation
-, salient object detection) of course.
 
 
 
@@ -48,16 +46,12 @@ If you want to train on custom datasets you should paper dataset as following st
         |-masks
             |-xxx.png
 ```
-We have re-organized [SIRST](https://drive.google.com/file/d/1yrNDtwgG_-RlT3YwXT6JHBOQIRQS0WhL/view?usp=share_link)
-and 
-[IRSTD](https://drive.google.com/file/d/18JnpJGUfzVnRLfRx7MwPjeituOELknCB/view?usp=share_link),
-you can just download and unzip.
 ## Training
 
 To train the model, run this command:
 
 ```train
-python train.py --opt ./options/ucf_train.yaml
+python train.py --opt ./options/hcf_train.yaml
 ```
 
 >📋 Once you run this train command it will automatically create a folder under ./experiments
@@ -69,7 +63,7 @@ python train.py --opt ./options/ucf_train.yaml
 To evaluate pretrained model, run:
 
 ```eval
-python test.py --opt ./test_options/ucf_test.yaml
+python test.py --opt ./test_options/hcf_test.yaml
 ```
 
 >📋  usage example:
@@ -88,25 +82,3 @@ You can download pretrained models (we also provide the whole training logs) her
 | Model name | IoU   | nIoU  |
 |------------|-------|-------|
 | UCF Net    | 80.89 | 78.72 |
-
-- [UCF for IRSTD](https://drive.google.com/file/d/1AhLK88mbZzCgoR-KRKKmWT7oWi3-BckF/view?usp=share_link)
-
-| Model name | IoU   | nIoU  |
-|------------|-------|-------|
-| UCF Net    | 68.92 | 69.26 |
-## Advanced
-We have provided some networks: FPN, HRnet, SwinT, U2net, unet and so on,
-you can try yourself.
-
-We will introduce how to use your own data augmentation function
-, how to use your own network and so on.
-
-
-
-## Contributing
-
->📋  BasicISOS v1.0 is almost build by [wcyjerry](https://github.com/wcyjerry) 
-> (some codes are modified from [BasicSR](https://github.com/XPixelGroup/BasicSR)),
-> if you want to help us to maintain and improve it, you can email me at: wcyjerry@qq.com
-
-> Feel free to pull requests and issues.
