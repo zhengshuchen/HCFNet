@@ -7,7 +7,6 @@ exp:
   save_interval: 150
   test_interval: 1
   device: 3
-
 model:
   net:
     type: HCFnet

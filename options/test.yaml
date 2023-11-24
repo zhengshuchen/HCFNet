@@ -17,4 +17,4 @@ dataset:
     get_name: True
 
 resume:
-  net_path: /media/data2/zhengshuchen/code/HCFnet/experiment/UCF_demo/best_1/models/net_best_mean.pth
+  net_path: /media/data2/zhengshuchen/code/HCFnet/experiment/HCF_demo/20231112_201631/models/net_best_mean.pth
