@@ -51,12 +51,12 @@ Version Information:
     name: None
     train:[
       type: Dataset_aug_bac
-      data_root: /media/data2/zhengshuchen/code/HCFnet/sirst/trainval
+      data_root: /media/data2/xxx/code/HCFnet/sirst/trainval
       img_sz: 512
     ]
     test:[
       type: Dataset_test
-      data_root: /media/data2/zhengshuchen/code/HCFnet/sirst/test
+      data_root: /media/data2/xxx/code/HCFnet/sirst/test
       img_sz: 512
     ]
   ]
