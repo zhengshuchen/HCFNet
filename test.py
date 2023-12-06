@@ -40,7 +40,6 @@ def main():
     # init dataset
     testset = init_dataset(opt)
     test_loader = init_dataloader(opt, testset)
-    # 初始化 模型参数, 包含 网络 优化器 损失函数 学习率准则
     # initialize parameters including network, optimizer, loss function, learning rate scheduler
     model = Test_model(opt)
     save_dir = opt['exp'].get('save_dir', False)
