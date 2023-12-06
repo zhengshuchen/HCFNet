@@ -159,25 +159,6 @@ class HCFnet(nn.Module):
         else:
             return out
 
-# if __name__ == '__main__':
-    # model = HCFnet()
-    # model = model.cuda()
-    #
-    # print(model)
-
-    ### thop cal ###
-    # input_shape = (1, 3, 384, 384) # 输入的形状
-    # input_data = torch.randn(*input_shape)
-    # macs, params = profile(model, inputs=(input_data,))
-    # print(f"FLOPS: {macs / 1e9:.2f}G")
-    # print(f"params: {params / 1e6:.2f}M")
-
-    ### ptflops cal ###
-    # flops_count, params_count = get_model_complexity_info(model,(3,512,512), as_strings=True, print_per_layer_stat=False)
-    #
-    # print('flops: ', flops_count)
-    # print('params: ', params_count)
-
 
 
 
