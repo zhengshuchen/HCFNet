@@ -36,7 +36,7 @@ python test.py --opt ./options/test.yaml
 ## 训练结果
 我们提供了整个训练的logs:
 ```
-
+train_HCF_demo_20231112_201631.log
 ```
 | Model name | IoU   | nIoU  |
 |------------|-------|-------|
