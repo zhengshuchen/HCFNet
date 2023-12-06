@@ -35,9 +35,9 @@ python test.py --opt ./options/test.yaml
 ## Trained Results
 
 we provide the whole training logs：
-
-
-
+```
+train_HCF_demo_20231112_201631.log
+```
 | Model name | IoU   | nIoU  |
 |------------|-------|-------|
 | UCF Net    | 80.09 | 78.31 |
