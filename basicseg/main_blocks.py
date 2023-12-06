@@ -156,8 +156,8 @@ class LocalGlobalAttention(nn.Module):
         self.norm = nn.LayerNorm(output_dim // 2)
         self.mlp2 = nn.Linear(output_dim // 2, output_dim)
         self.conv = nn.Conv2d(output_dim, output_dim, kernel_size=1)
-        self.prompt = torch.nn.parameter.Parameter(torch.randn(output_dim, requires_grad=True)) #大小为output_dim的随机初始化的张量
-        self.top_down_transform = torch.nn.parameter.Parameter(torch.eye(output_dim), requires_grad=True)#它是一个大小为 output_dim x output_dim 的单位矩阵（对角线上元素为1，其余元素为0）
+        self.prompt = torch.nn.parameter.Parameter(torch.randn(output_dim, requires_grad=True)) 
+        self.top_down_transform = torch.nn.parameter.Parameter(torch.eye(output_dim), requires_grad=True)
 
     def forward(self, x):
         x = x.permute(0, 2, 3, 1)
@@ -165,7 +165,6 @@ class LocalGlobalAttention(nn.Module):
         P = self.patch_size
 
         # Local branch
-        #这两个unfold函数的组合将输入张量 x 切分成了大小为 P x P 的局部块，这些局部块的大小和位置是在输入张量的高度和宽度维度上划分的。这通常用于将图像切分成小块，以便对每个小块进行局部处理，从而帮助模型捕获更细粒度的特征。
         local_patches = x.unfold(1, P, P).unfold(2, P, P)  # (B, H/P, W/P, P, P, C)
         local_patches = local_patches.reshape(B, -1, P*P, C)  # (B, H/P*W/P, P*P, C)
         local_patches = local_patches.mean(dim=-1)  # (B, H/P*W/P, P*P)
@@ -177,7 +176,6 @@ class LocalGlobalAttention(nn.Module):
         local_attention = F.softmax(local_patches, dim=-1)  # (B, H/P*W/P, output_dim)
         local_out = local_patches * local_attention # (B, H/P*W/P, output_dim)
 
-        #特征提取
         cos_sim = F.normalize(local_out, dim=-1) @ F.normalize(self.prompt[None, ..., None], dim=1)  # B, N, 1
         mask = cos_sim.clamp(0, 1)
         local_out = local_out * mask
@@ -321,14 +319,12 @@ class MDCR(nn.Module):
             )
 
     def forward(self, x):
-        # 创建一个空列表，用于存储拆分后的张量
         split_tensors = []
         x = torch.chunk(x, 4, dim=1)
         x1 = self.block1(x[0])
         x2 = self.block2(x[1])
         x3 = self.block3(x[2])
         x4 = self.block4(x[3])
-        # 按通道逐一拆分
         for channel in range(x1.size(1)):
             channel_tensors = [tensor[:, channel:channel + 1, :, :] for tensor in [x1, x2, x3, x4]]
             concatenated_channel = self.out_s(torch.cat(channel_tensors, dim=1))  # 拼接在 batch_size 维度上
