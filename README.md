@@ -34,7 +34,7 @@ python test.py --opt ./options/test.yaml
 ```
 ## Trained Results
 
-we provide the whole training logs：
+We provide the whole training logs：
 ```
 train_HCF_demo_20231112_201631.log
 ```
