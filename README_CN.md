@@ -33,11 +33,11 @@ python train.py --opt ./options/train.yaml
 ```eval
 python test.py --opt ./options/test.yaml
 ```
-## 预训练权重和结果
-你可以下载预训练权重（我们还提供了整个训练的logs）:
+## 训练结果
+我们提供了整个训练的logs:
+```
 
-- [HCF for SIRST](https://drive.google.com/drive/folders/1KljHLQjJVdMmaZXnkf1dtajtD8D28n7T?usp=drive_link)  
-
+```
 | Model name | IoU   | nIoU  |
 |------------|-------|-------|
 | UCF Net    | 80.09 | 78.31 |
