@@ -32,11 +32,10 @@ To evaluate pretrained model, run:
 ```eval
 python test.py --opt ./options/test.yaml
 ```
-## Pre-trained Models and Results
+## Trained Results
 
-You can download pretrained models (we also provide the whole training logs) here:
+we provide the whole training logs：
 
-- [HCF for SIRST](https://drive.google.com/drive/folders/1KljHLQjJVdMmaZXnkf1dtajtD8D28n7T?usp=drive_link)
 
 
 | Model name | IoU   | nIoU  |
