@@ -94,12 +94,10 @@ def main():
     test_interval = opt['exp']['test_interval']
     logger, tb_logger = init_exp(opt, args)
     set_seed(cur_rank + 0)
-    # 初始化 模型参数, 包含 网络 优化器 损失函数 学习率准则
     # initialize parameters including network, optimizer, loss function, learning rate scheduler
     model = init_model(opt)
     cur_iter = 0
     cur_epoch = 1
-    # 从断点继续训练
     # train from checkpoint
     if opt.get('resume'):
         if opt['resume'].get('net_path'):
