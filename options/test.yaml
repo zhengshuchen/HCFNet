@@ -12,9 +12,9 @@ model:
 dataset:
   test:
     type: Dataset_test
-    data_root: /media/data2/zhengshuchen/code/HCFnet/sirst/test
+    data_root: 
     img_sz: 512
     get_name: True
 
 resume:
-  net_path: /media/data2/zhengshuchen/code/HCFnet/experiment/HCF_demo/20231112_201631/models/net_best_mean.pth
+  net_path: 
