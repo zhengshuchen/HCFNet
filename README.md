@@ -32,12 +32,13 @@ To evaluate pretrained model, run:
 ```eval
 python test.py --opt ./options/test.yaml
 ```
-## Trained Results
+## Pre-trained Models and Results
 
-We provide the whole training logs：
-```
-train_HCF_demo_20231112_201631.log
-```
+You can download pretrained models (we also provide the whole training logs) here:
+
+- [HCF for SIRST](https://drive.google.com/drive/folders/1KljHLQjJVdMmaZXnkf1dtajtD8D28n7T?usp=drive_link)
+
+
 | Model name | IoU   | nIoU  |
 |------------|-------|-------|
 | UCF Net    | 80.09 | 78.31 |
