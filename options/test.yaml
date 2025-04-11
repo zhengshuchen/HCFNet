@@ -1,7 +1,7 @@
 exp:
 #  save_dir:
   bs: 4
-  device: 1
+  device: 0
 
 model:
   net:
@@ -12,9 +12,9 @@ model:
 dataset:
   test:
     type: Dataset_test
-    data_root: 
+    data_root: /media/data2/zhengshuchen/code/SIRST/test
     img_sz: 512
     get_name: True
 
 resume:
-  net_path: 
+  net_path: /media/data2/zhengshuchen/code/HCFNet/experiment/HCF_demo/20250327_112905/models/net_best_mean.pth

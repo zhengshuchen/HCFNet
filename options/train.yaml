@@ -6,7 +6,7 @@ exp:
   log_interval: 1
   save_interval: 150
   test_interval: 1
-  device: 3
+  device: 0
 model:
   net:
     type: HCFnet
@@ -43,12 +43,12 @@ dataset:
   name:
   train:
     type: Dataset_aug_bac
-    data_root: 
+    data_root: /media/data2/zhengshuchen/code/nudt/trainval
     img_sz: 512
 
   test:
     type: Dataset_test
-    data_root:
+    data_root: /media/data2/zhengshuchen/code/nudt/test
     img_sz: 512
 
 resume:

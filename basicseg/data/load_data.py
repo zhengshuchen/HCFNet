@@ -34,6 +34,27 @@ class Basedataset(Data.Dataset):
         img = np.array(cv2.imread(image_path, cv2.IMREAD_COLOR))
         mask = np.array(cv2.imread(mask_path, cv2.IMREAD_GRAYSCALE))
         mask = (mask / 255.).astype(np.float32)
+        # # 设置保存文件夹路径
+        # save_dir_image = "/media/data2/zhengshuchen/code/BasicISOS/test_image/images"
+        # save_dir_mask = "/media/data2/zhengshuchen/code/BasicISOS/test_image/masks"
+        # # 假设 self.images[index] 是图像的文件名（包括扩展名，如 "image1.jpg"）
+        # filename = self.images[index]
+        # # 生成保存路径
+        # image_save_path = os.path.join(save_dir_image, filename)
+        # mask_save_path = os.path.join(save_dir_mask, filename)
+        # # 设置目标尺寸
+        # new_width = 512
+        # new_height = 512
+        # # 读取原始图像和掩码
+        # image1 = cv2.imread(image_path, cv2.IMREAD_COLOR)
+        # mask1 = cv2.imread(mask_path, cv2.IMREAD_GRAYSCALE)
+        # # 调整图像和掩码大小
+        # resized_image = cv2.resize(image1, (new_width, new_height))
+        # resized_mask = cv2.resize(mask1, (new_width, new_height))
+        # # 保存图像和掩码
+        # cv2.imwrite(image_save_path, resized_image)
+        # cv2.imwrite(mask_save_path, resized_mask)
+
         transform_fn = self.setup_transform_fn()
         if transform_fn:
             aug_inputs = transform_fn(image=img, mask=mask)
@@ -54,7 +75,7 @@ class Dataset_test(Basedataset):
     def __init__(self, opt):
         super().__init__(opt)
     def setup_transform_fn(self):
-        return aug_transform_test(self.opt)
+        return aug_transform_test_new(self.opt)
 
 @DATASET_REGISTRY.register()
 class Dataset_aug_s(Basedataset):
@@ -75,7 +96,7 @@ class Dataset_aug_bac(Basedataset):
     def __init__(self, opt):
         super().__init__(opt)
     def setup_transform_fn(self):
-        return aug_transform_bac(self.opt)
+        return aug_transform_train(self.opt)
 
 
 @DATASET_REGISTRY.register()
