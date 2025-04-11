@@ -10,7 +10,7 @@ from basicseg.main_blocks import PPA, DASI, MDCR
 from basicseg.utils.registry import NET_REGISTRY
 
 
-# @NET_REGISTRY.register()
+@NET_REGISTRY.register()
 class HCFnet(nn.Module):
     def __init__(self,
                 in_features=3,
